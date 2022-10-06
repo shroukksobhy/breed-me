@@ -12,23 +12,12 @@ import {
   Route,
 } from "react-router-dom";
 import Empty from "./Pages/Empty";
+import Articles from "./Pages/Articles";
+import LandinPage from "./Pages/LandinPage";
 import './i18n';
 import NavBar from './Navbar';
 function App() {
   return (
-    // <React.Fragment>
-    //   <Container>
-    //     <Box pt={2}>
-    //       <Pets />
-    //     
-    //   </Container>
-    //   <Header />
-    //   {/* A <Switch> looks through its children <Route>s and
-    //         renders the first one that matches the current URL. */}
-    //   <Routes >
-    //     <Route path="/" element={<App />} />
-    //   </Routes >
-    // </React.Fragment>
     <div className="app">
       <Header />
       {/* <NavBar /> */}
@@ -39,7 +28,9 @@ function App() {
         <PrivateRoute path="/" element={<PrivateScreen />} /> */}
             <Route path="/pets" element={<Pets />} />
             <Route path="/pets/:id" element={<Pet />} />
-            <Route path="/" element={<Empty />} />
+            <Route path="/" element={<LandinPage />} />
+            {/* <Route path="/" element={<Empty />} /> */}
+            <Route path="/articles" element={<Articles />} />
             <Route path="/passwordreset/:resetToken" element={<Empty />} />
           </Routes>
         </Box>

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { Route, Link, Routes, useParams } from 'react-router-dom';
+import { Route, Link, Routes, useParams, NavLink } from 'react-router-dom';
 import axios from "axios";
-import { Container, Grid, Card, CardHeader, CardContent, CardActions, Typography, Button } from '@material-ui/core';
+import Stack from "@mui/material/Stack";
+import { Container, Grid, Card, CardActions, CardContent, Box, Typography, Button } from '@material-ui/core';
 import Alert from '@mui/material/Alert';
 import { useTranslation } from 'react-i18next';
 import ImageGallery from 'react-image-gallery';
@@ -46,6 +47,7 @@ export default function Pet() {
         }
         fetchPets();
     }, [setData]);
+
     return (
         <>
             <Grid container spacing={2}>
@@ -53,14 +55,24 @@ export default function Pet() {
                     {/* <ImageGallery items={images} /> */}
                     <Card>
                         <Container>
-                            <Typography variant="h3" >
-                                {data.name}
-                            </Typography>
-                            <Typography>Cairo . Egypt</Typography>
+
+                            <Box mb={5}>
+                                <Typography variant="h3">
+                                    {data.name}
+                                </Typography>
+                            </Box>
+                            <NavLink
+                                className="navbar-item"
+                                activeClassName="is-active"
+                                to="/articles/dog-breeds/siberian-husky/"
+                                exact
+                            >
+                                {data.breed}
+                            </NavLink>
                             <hr />
                             <Typography>{data.type} . {data.sex} . {data.nationality}</Typography>
                             <hr />
-                            <Typography variant='subtitle1'>About</Typography>
+                            <Typography variant='h6'>About</Typography>
                             <Typography>{data.notes}</Typography>
                             <hr />
                             <Alert severity="success" color="info">
@@ -71,14 +83,29 @@ export default function Pet() {
                     </Card>
                 </Grid>
                 <Grid item xs={4}>
-                    <Card>
-                        <CardContent>
-                            {t('location')}
-                            <Typography variant='subtitle1'>Cairo</Typography>
-                        </CardContent>
-                    </Card>
-                </Grid>
+                    <Stack spacing={4} direction="column">
+                        <Card>
+                            <Button variant="outlined">Start your inquery</Button>
+                            <Button variant="outlined">Read FAQS</Button>
+                            <CardContent>
+                                {t('location')}
 
+                            </CardContent>
+                            <CardActions>
+                                <Button size="small" color="primary">
+                                    Share
+                                </Button>
+                            </CardActions>
+                        </Card>
+                        <Card>
+                            <CardContent>
+                                {t('location')}
+                                <Typography variant='subtitle1'>Cairo, Egypt</Typography>
+                            </CardContent>
+                        </Card>
+
+                    </Stack>
+                </Grid>
             </Grid>
         </>
     );

@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { styled } from '@mui/material/styles';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import { red } from '@mui/material/colors';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
-import { Link } from 'react-router-dom';
-import { Container, Grid, Card, CardMedia, CardHeader, CardContent, CardActions, Typography, Button, CardActionArea } from '@material-ui/core';
+import { Grid, Card, CardMedia, CardHeader, CardContent, Typography, CardActionArea } from '@material-ui/core';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
 import axios from "axios";
 import { useTranslation } from 'react-i18next';
 function Cards() {
@@ -16,7 +11,7 @@ function Cards() {
     const [isLoaded, setIsLoaded] = useState(false);
     const [data, setData] = useState([]);
     const BASE_URL = 'http://127.0.0.1:8000';
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
 
     useEffect(() => {
         const fetchPets = async () => {
@@ -42,10 +37,10 @@ function Cards() {
     } else {
         return (
             <>
-                <Typography align='center' variant='h3' gutterBottom style={{ color: "#FF5733" }} >
+                <Typography align='center' variant='h3' gutterBottom style={{ color: "#6504B5" }} >
                     {t('pets')}
                 </Typography>
-                <Grid container spacing={2}>
+                <Grid container spacing={3}>
                     {data?.map(item => (
                         <Grid item md={4} key={item.id} >
                             <Card sx={{ maxWidth: 345, boxShadow: 3 }}>

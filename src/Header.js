@@ -25,7 +25,7 @@ function Header() {
     };
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static">
+            <AppBar position="static" style={{ backgroundColor: "#6504B5" }} >
                 <Toolbar>
                     <IconButton
                         size="large"
@@ -37,6 +37,9 @@ function Header() {
                     </IconButton>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         <Link to="/pets">{t('BreedMe')} </Link>
+                    </Typography>
+                    <Typography variant="h6" component="div" >
+                        <Link to="/">{t('Home')} </Link>
                     </Typography>
                     <Link to="/login" className="nav-link">
                         <Button color="secondary" variant="contained"> {t('login')}</Button>
