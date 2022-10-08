@@ -7,7 +7,7 @@ import Alert from '@mui/material/Alert';
 import { useTranslation } from 'react-i18next';
 import ImageGallery from 'react-image-gallery';
 // import styles from '../App.css';
-
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 export default function Pet() {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -85,16 +85,47 @@ export default function Pet() {
                 <Grid item xs={4}>
                     <Stack spacing={4} direction="column">
                         <Card>
-                            <Button variant="outlined">Start your inquery</Button>
-                            <Button variant="outlined">Read FAQS</Button>
                             <CardContent>
-                                {t('location')}
-
+                                <Box>
+                                    <Typography variant="h6" align="center" sx={{ fontWeight: 'bold' }}>
+                                        Considering {data.name} for adoption?
+                                    </Typography>
+                                </Box>
+                                <Stack spacing={2} py={3}>
+                                    <Button variant="outlined" style={{
+                                        display: "block",
+                                        width: "100%",
+                                    }} >Start your inquery</Button>
+                                    <Button variant="contained" style={{
+                                        display: "block",
+                                        width: "100%"
+                                    }} >Read FAQS</Button>
+                                </Stack>
                             </CardContent>
                             <CardActions>
-                                <Button size="small" color="primary">
-                                    Share
-                                </Button>
+                                <Grid container>
+                                    <Grid item md={6} align="center">
+                                        <Button size="small" color="primary" style={{
+                                            display: "block",
+                                            width: "100%",
+                                        }} component={Link} to="/coming-soon"> Sponsor</Button>
+
+                                    </Grid>
+                                    <Grid item md={6} align="center">
+
+                                        <Button size="small" style={{
+                                            display: "block",
+                                            width: "100%",
+                                            display: 'flex',
+                                            flexWrap: 'wrap',
+                                        }}><FavoriteBorderIcon fontSize="small" style={{
+                                            margin: "5px",
+                                            fontSize: "20"
+                                        }} /> {t('favorite')}</Button>
+                                    </Grid>
+
+
+                                </Grid>
                             </CardActions>
                         </Card>
                         <Card>

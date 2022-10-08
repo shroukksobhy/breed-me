@@ -16,7 +16,7 @@ function Cards() {
     useEffect(() => {
         const fetchPets = async () => {
             const url = `${BASE_URL}/api/breedme/pets`;
-            const userId = "1";
+            const userId = "2";
             axios.get(url, {
                 params: {
                     userId: userId

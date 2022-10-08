@@ -1,24 +1,26 @@
-import React, { useState, useEffect, memo } from 'react'
-import axios from "axios";
+import React, { useEffect, useState } from 'react'
+import { Route, Link, Routes, useParams, NavLink } from 'react-router-dom';
+import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import { Box, Grid, Card, CardMedia, CardHeader, CardContent, CardActions, Typography, Button, CardActionArea } from '@material-ui/core';
-import IconButton from '@mui/material/IconButton';
 import Avatar from '@mui/material/Avatar';
 import { red } from '@mui/material/colors';
-
-const PetsList = memo(() => {
+import '../App.css';
+function FilterPage() {
+    const params = useParams();
+    const BASE_URL = 'http://127.0.0.1:8000';
     const [data, setData] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
-    const BASE_URL = 'http://127.0.0.1:8000';
     const { t, i18n } = useTranslation();
 
     useEffect(() => {
         const fetchPets = async () => {
             const url = `${BASE_URL}/api/breedme/pets`;
-            const userId = "2";
+            const userId = "1";
             axios.get(url, {
                 params: {
-                    userId: userId
+                    userId: userId,
+                    type: params.petType
                 }
             })
                 .then(res => {
@@ -29,11 +31,17 @@ const PetsList = memo(() => {
         }
         fetchPets();
     }, [setData]);
+    console.log(data);
     if (!isLoaded) {
         return <div>{t('loading')} </div>;
     } else {
         return (
             <>
+                <Box p={2}>
+                    <Typography align='center' variant='h3' gutterBottom style={{ color: "#FF5733" }} >
+                        {params.petType}s Available for Adoption
+                    </Typography>
+                </Box>
                 <Grid container spacing={3}>
                     {data?.slice(0, 3).map(item => (
                         <Grid item md={3} key={item.id} >
@@ -55,6 +63,7 @@ const PetsList = memo(() => {
                                 </CardActionArea>
                             </Card>
                         </Grid>
+
                     ))}
                     <Grid item md={3}>
                         <Card>
@@ -72,7 +81,7 @@ const PetsList = memo(() => {
                                 </CardContent>
                                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                                     <CardActions>
-                                        <Button>{t('meetThem')}</Button>
+                                        <Button style={{ display: "block", width: "100%", fontWeight: "bold", backgroundColor: '#FF5733' }}>{t('meetThem')}</Button>
                                     </CardActions>
                                 </Box>
                             </CardActionArea>
@@ -82,7 +91,6 @@ const PetsList = memo(() => {
             </>
         )
     }
+}
 
-})
-
-export default PetsList
+export default FilterPage

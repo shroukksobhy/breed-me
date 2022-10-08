@@ -14,8 +14,11 @@ import {
 import Empty from "./Pages/Empty";
 import Articles from "./Pages/Articles";
 import LandinPage from "./Pages/LandinPage";
+import ComingSoon from './Pages/ComingSoon';
+import Login from './Pages/Login';
 import './i18n';
 import NavBar from './Navbar';
+import FilterPage from "./Pages/FilterPage";
 function App() {
   return (
     <div className="app">
@@ -31,7 +34,11 @@ function App() {
             <Route path="/" element={<LandinPage />} />
             {/* <Route path="/" element={<Empty />} /> */}
             <Route path="/articles" element={<Articles />} />
+            <Route path="/coming-soon" element={<ComingSoon />} />
             <Route path="/passwordreset/:resetToken" element={<Empty />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/search/:petType" element={<FilterPage />} />
+
           </Routes>
         </Box>
       </Container>
