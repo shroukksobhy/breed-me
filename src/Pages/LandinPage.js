@@ -61,7 +61,7 @@ export default function LandinPage() {
                     </Grid>
                     <Grid item sm={3}>
                         <Card>
-                            <CardActionArea>
+                            <CardActionArea href={`/animals-shelters`}>
                                 <CardMedia
                                     component="img"
                                     height="80"

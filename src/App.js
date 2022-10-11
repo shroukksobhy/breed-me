@@ -19,6 +19,7 @@ import Login from './Pages/Login';
 import './i18n';
 import NavBar from './Navbar';
 import FilterPage from "./Pages/FilterPage";
+import Shelters from "./Pages/Shelters";
 function App() {
   return (
     <div className="app">
@@ -38,6 +39,7 @@ function App() {
             <Route path="/passwordreset/:resetToken" element={<Empty />} />
             <Route path="/login" element={<Login />} />
             <Route path="/search/:petType" element={<FilterPage />} />
+            <Route path="/animals-shelters" element={<Shelters />} />
 
           </Routes>
         </Box>
