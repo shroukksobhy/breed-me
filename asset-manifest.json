@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/breed-me/static/css/main.ee682f90.css",
+    "main.js": "/breed-me/static/js/main.f8c49389.js",
+    "static/js/787.85b13579.chunk.js": "/breed-me/static/js/787.85b13579.chunk.js",
+    "static/media/background_00.jpg": "/breed-me/static/media/background_00.c697e8e11598c67aeb51.jpg",
+    "index.html": "/breed-me/index.html",
+    "static/media/getFetch.cjs": "/breed-me/static/media/getFetch.c780682470504fffbd04.cjs",
+    "main.ee682f90.css.map": "/breed-me/static/css/main.ee682f90.css.map",
+    "main.f8c49389.js.map": "/breed-me/static/js/main.f8c49389.js.map",
+    "787.85b13579.chunk.js.map": "/breed-me/static/js/787.85b13579.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ee682f90.css",
+    "static/js/main.f8c49389.js"
+  ]
+}
